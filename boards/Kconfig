@@ -2072,6 +2072,13 @@ config ARCH_BOARD_PIMORONI_PICO_2_PLUS
 	---help---
 		This is a port to the Pimoroni Pico 2 Plus board.
 
+config ARCH_BOARD_ADAFRUIT_FEATHER_RP2350
+	bool "Adafruit Feather RP2350 board"
+	depends on ARCH_CHIP_RP23XX
+	select ARCH_HAVE_LEDS
+	---help---
+		This is a port to the Adafruit Feather RP2350 board.
+
 config ARCH_BOARD_WAVESHARE_RP2040_LCD_1_28
 	bool "Waveshare RP2040 LCD 1.28 board"
 	depends on ARCH_CHIP_RP2040
@@ -3639,6 +3646,7 @@ config ARCH_BOARD
 	default "raspberrypi-pico-2"        if ARCH_BOARD_RASPBERRYPI_PICO_2
 	default "xiao-rp2350"               if ARCH_BOARD_XIAO_RP2350
 	default "pimoroni-pico-2-plus"      if ARCH_BOARD_PIMORONI_PICO_2_PLUS
+	default "adafruit-feather-rp2350"   if ARCH_BOARD_ADAFRUIT_FEATHER_RP2350
 	default "w5500-evb-pico"            if ARCH_BOARD_W5500_EVB_PICO
 	default "waveshare-rp2040-zero"     if ARCH_BOARD_WAVESHARE_RP2040_ZERO
 	default "rx65n"                     if ARCH_BOARD_RX65N
@@ -4131,6 +4139,9 @@ source "boards/arm/rp23xx/xiao-rp2350/Kconfig"
 endif
 if ARCH_BOARD_PIMORONI_PICO_2_PLUS
 source "boards/arm/rp23xx/pimoroni-pico-2-plus/Kconfig"
+endif
+if ARCH_BOARD_ADAFRUIT_FEATHER_RP2350
+source "boards/arm/rp23xx/adafruit-feather-rp2350/Kconfig"
 endif
 if ARCH_BOARD_ARDUINO_DUE
 source "boards/arm/sam34/arduino-due/Kconfig"
